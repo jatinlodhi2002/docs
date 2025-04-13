@@ -20,21 +20,26 @@ Prerequisite
 The first step is to create a dedicated user to ensure that Kafka's operations do not interfere with the system's other functionalities.
 
 Add a new user called kafka:
+
 `sudo adduser kafka`
 
 Next, you need to add the kafka user to the sudo group to have the necessary privileges for Kafka installation.
+
 `sudo adduser kafka sudo`
 
 Then, log in to the kafka account:
+
 `su -l kafka`
 
 The kafka user now is ready to be used.
 
 ### Step 2: Installing Java Development Kit (JDK)
 Open the terminal and update the package index: 
+
 `sudo apt update`
 
 Install the OpenJDK 11 package:
+
 `sudo apt install openjdk-11-jdk`
 
 Now that you’ve installed the JDK, you can start downloading Kafka.
