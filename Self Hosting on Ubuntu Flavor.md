@@ -1,6 +1,6 @@
 ---
 
-# How to Self Host Sparrow in ubuntu
+# Self Host Sparrow in ubuntu
 
 Hosting our Sparrow on Ubuntu. This guide provides step-by-step instructions for self-hosting our Sparrow API on an Ubuntu server.
 
