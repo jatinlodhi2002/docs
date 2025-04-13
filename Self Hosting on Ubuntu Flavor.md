@@ -48,15 +48,19 @@ Now that you’ve installed the JDK, you can start downloading Kafka.
 Start by creating a folder named downloads to store the archive:
 
 `mkdir ~/downloads`
+
 `cd ~/downloads`
+
 `wget "https://downloads.apache.org/kafka/4.0.0/kafka_2.13-4.0.0.tgz"`
 
 Then, move to ~ and extract the archive you downloaded:
 
 `cd ~`
+
 `tar -xvzf ~/downloads/kafka_2.13-4.0.0.tgz`
 
 Let’s rename the directory kafka_2.13-4.0.0 to kafka.
+
 `mv kafka_2.13-4.0.0/ kafka/`
 
 Now that you’ve downloaded Kafka, you can start configuring your Kafka server.
@@ -65,6 +69,7 @@ Now that you’ve downloaded Kafka, you can start configuring your Kafka server.
 First, start by setting the log.dirs property to change the directory where the Kafka logs are.
 
 To do so, you need to edit the server.properties file:
+
 `nano ~/kafka/config/server.properties`
 
 Look for `log.dirs` and set the value to `/home/kafka/kafka-logs.`
@@ -77,6 +82,7 @@ To start the Kafka server, you need to first start Zookeeper and then start Kafk
 But, to be more efficient, you need to create systemd unit files and use systemctl instead.
 
 Unit File for Zookeeper:
+
 `sudo nano /etc/systemd/system/zookeeper.service`
 
 ```
@@ -97,6 +103,7 @@ WantedBy=multi-user.target
 ```
  
  Unit File for Kafka:
+
 `sudo nano /etc/systemd/system/kafka.service`
 
 ```
@@ -116,14 +123,17 @@ Restart=on-abnormal
 WantedBy=multi-user.target
 ```
 Then, you can start the Kafka server:
+
 `sudo systemctl start kafka`
 
 Check the status:
+
 `sudo systemctl status kafka`
 
 Step 6: Testing the Kafka server
 
 You can check if the Kafka server is up with netcat. By default, Kafka server runs on 9092:
+
 `nc -vz localhost 9092`
 
 ---
@@ -133,6 +143,7 @@ You can check if the Kafka server is up with netcat. By default, Kafka server ru
 ### Step1: Import the public key.
 
 From a terminal, install gnupg and curl if they are not already available:
+
 `sudo apt-get install gnupg curl`
 
 To import the MongoDB public GPG key, run the following command:
@@ -153,10 +164,12 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gp
 ### Step3: Reload the package database
 
 Issue the following command to reload the local package database:
+
 `sudo apt-get update`
 
 ### Step4: Install MongoDB Community Server
 You can install either the latest stable version of MongoDB.
+
 `sudo apt-get install -y mongodb-org`
 
 ```
