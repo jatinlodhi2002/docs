@@ -48,10 +48,13 @@ Now that you’ve installed the JDK, you can start downloading Kafka.
 Start by creating a folder named downloads to store the archive:
 
 `mkdir ~/downloads`
+
 `cd ~/downloads`
+
 `wget "https://downloads.apache.org/kafka/4.0.0/kafka_2.13-4.0.0.tgz"`
 
 Then, move to ~ and extract the archive you downloaded:
+
 `cd ~`
 `tar -xvzf ~/downloads/kafka_2.13-4.0.0.tgz`
 
