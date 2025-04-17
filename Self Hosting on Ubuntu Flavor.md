@@ -76,6 +76,7 @@ To do so, you need to edit the server.properties file:
 
 Look for `log.dirs` and set the value to `/home/kafka/kafka-logs.`
 
+| Note: This is where Kafka stores its data logs, not application logs.
 
 
 #### Step 5: Starting the Kafka server
