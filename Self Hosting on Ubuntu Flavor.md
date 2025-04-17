@@ -1,5 +1,4 @@
----
-title: Self Hosting on Ubuntu Flavor
+
 
 ---
 
@@ -23,21 +22,26 @@ Prerequisite
 The first step is to create a dedicated user to ensure that Kafka's operations do not interfere with the system's other functionalities.
 
 Add a new user called kafka:
+
 `sudo adduser kafka`
 
 Next, you need to add the kafka user to the sudo group to have the necessary privileges for Kafka installation.
+
 `sudo adduser kafka sudo`
 
 Then, log in to the kafka account:
+
 `su -l kafka`
 
 The kafka user now is ready to be used.
 
 #### Step 2: Installing Java Development Kit (JDK)
 Open the terminal and update the package index: 
+
 `sudo apt update`
 
 Install the OpenJDK 11 package:
+
 `sudo apt install openjdk-11-jdk`
 
 Now that you’ve installed the JDK, you can start downloading Kafka.
@@ -46,14 +50,19 @@ Now that you’ve installed the JDK, you can start downloading Kafka.
 Start by creating a folder named downloads to store the archive:
 
 `mkdir ~/downloads`
+
 `cd ~/downloads`
+
 `wget "https://downloads.apache.org/kafka/4.0.0/kafka_2.13-4.0.0.tgz"`
 
 Then, move to ~ and extract the archive you downloaded:
+
 `cd ~`
+
 `tar -xvzf ~/downloads/kafka_2.13-4.0.0.tgz`
 
 Let’s rename the directory kafka_2.13-4.0.0 to kafka.
+
 `mv kafka_2.13-4.0.0/ kafka/`
 
 Now that you’ve downloaded Kafka, you can start configuring your Kafka server.
@@ -62,6 +71,7 @@ Now that you’ve downloaded Kafka, you can start configuring your Kafka server.
 First, start by setting the log.dirs property to change the directory where the Kafka logs are.
 
 To do so, you need to edit the server.properties file:
+
 `nano ~/kafka/config/server.properties`
 
 Look for `log.dirs` and set the value to `/home/kafka/kafka-logs.`
@@ -116,9 +126,11 @@ Restart=on-abnormal
 WantedBy=multi-user.target
 ```
 Then, you can start the Kafka server:
+
 `sudo systemctl start kafka`
 
 Check the status:
+
 `sudo systemctl status kafka`
 
 Step 6: Testing the Kafka server
@@ -134,6 +146,7 @@ You can check if the Kafka server is up with netcat. By default, Kafka server ru
 #### Step1: Import the public key.
 
 From a terminal, install gnupg and curl if they are not already available:
+
 `sudo apt-get install gnupg curl`
 
 To import the MongoDB public GPG key, run the following command:
@@ -154,10 +167,12 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gp
 #### Step3: Reload the package database
 
 Issue the following command to reload the local package database:
+
 `sudo apt-get update`
 
 #### Step4: Install MongoDB Community Server
 You can install either the latest stable version of MongoDB.
+
 `sudo apt-get install -y mongodb-org`
 
 ```
@@ -178,11 +193,14 @@ sudo systemctl enable mongod
 Ensure that Node.js is installed on Ubuntu server. You can do this by running the following commands:
 
 `sudo apt update`
+
 `sudo apt install nodejs`
 
 **Install npm & pnpm**
 npm (Node Package Manager) should be installed along with Node.js. Verify its installation by running:
+
 `npm -v`
+
 `pnpm install`
 
 ---
