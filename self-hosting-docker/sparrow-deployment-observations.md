@@ -1,4 +1,4 @@
-Sure! Here's your content converted into a clean and well-formatted **Markdown (`.md`)** file:
+
 
 ```markdown
 # Sparrow Deployment Notes (Docker)
